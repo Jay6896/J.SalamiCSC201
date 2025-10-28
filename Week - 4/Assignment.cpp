@@ -2,26 +2,19 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-    string student_name;
-    int student_school;
+    string student_name, student_course;
+    int student_school, r, course_choice, student_location;
     bool pau_student;
-    int course_choice;
-    string student_course;
-    int student_location;
-    double lodging_cost;
-    double lodging_discount;
-    double registration_discount;
-    double registration_cost;
-    double total;
-    int r;
+    double lodging_cost, lodging_discount, registration_discount, registration_cost, total;
 
     cout << "Welcome User! \n\nPlease enter your name to continue: ";
-    cin >> student_name;
+    getline(cin, student_name);
 
     cout << "\nAre you a PAU Student? \n(Please enter 1 for true and 0 for false): ";
     cin >> student_school;
@@ -37,7 +30,8 @@ int main()
 
     else
     {
-        cout << "Invalid input, please restart this application and try again!";
+        cout << "\n\nInvalid input, please restart this application and try again!";
+        return 0;
     }
 
     cout << "\nWhat is your desired Course of Study from the following: \n1 - Photography \n2 - Painting \n3 - Fish Farming \n4 - Baking \n5 - Public Speaking \n\nPlease enter the number corresponding to your desired Course: ";
@@ -82,6 +76,7 @@ int main()
         else
         {
             cout << "Invalid input, please try again!";
+            return 0;
         }
     }
 
@@ -121,6 +116,7 @@ int main()
         else
         {
             cout << "Invalid input, please try again!";
+            return 0;
         }
     }
 
@@ -160,6 +156,7 @@ int main()
         else
         {
             cout << "Invalid input, please try again!";
+            return 0;
         }
     }
 
@@ -199,6 +196,7 @@ int main()
         else
         {
             cout << "Invalid input, please try again!";
+            return 0;
         }
     }
 
@@ -238,6 +236,7 @@ int main()
         else
         {
             cout << "Invalid input, please try again!";
+            return 0;
         }
     }
 
@@ -245,6 +244,7 @@ int main()
     {
         student_location = 0;
         cout << "Invalid input, please try again!";
+        return 0;
     }
 
     lodging_discount = 0;
@@ -268,13 +268,29 @@ int main()
 
     if (r == 7 || r == 77)
     {
-        total = total - 500;
-        cout << "\n\nCongratulations! You are eligible for our N500 Bonus! \nYour total is now " << total;
-        cout << "\n\nUSER DETAILS \n____________ \n\nName: " << student_name << "\nCourse: " << student_course << "\nRegistration Fee: N" << registration_cost << "   (Registration Discount = N" << registration_discount << ")" << "\nLodging Fee: N" << lodging_cost << "        (Lodging Discount = N" << lodging_discount << ")" << "\nRandom Draw Number: " << r << "\nPromo Applied: N500" << "\n__________________\n\nTOTAL:  N" << total << "\n\n";
+        if (pau_student == true)
+        {
+            total = total - 500;
+            cout << "\n\nCongratulations! You are eligible for our N500 Bonus! \nYour total is now " << total;
+            cout << "\n\nUSER DETAILS \n____________ \n\nName: " << student_name << "     (PAU student: Yes)" << "\nCourse: " << student_course << "\nRegistration Fee: N" << registration_cost << "   (Registration Discount = N" << registration_discount << ")" << "\nLodging Fee: N" << lodging_cost << "        (Lodging Discount = N" << lodging_discount << ")" << "\nRandom Draw Number: " << r << "\nPromo Applied: N500" << "\n__________________\n\nTOTAL:  N" << total << "\n\n";
+        }
+        else
+        {
+            total = total - 500;
+            cout << "\n\nCongratulations! You are eligible for our N500 Bonus! \nYour total is now " << total;
+            cout << "\n\nUSER DETAILS \n____________ \n\nName: " << student_name << "     (PAU student: No)" << "\nCourse: " << student_course << "\nRegistration Fee: N" << registration_cost << "   (Registration Discount = N" << registration_discount << ")" << "\nLodging Fee: N" << lodging_cost << "        (Lodging Discount = N" << lodging_discount << ")" << "\nRandom Draw Number: " << r << "\nPromo Applied: N500" << "\n__________________\n\nTOTAL:  N" << total << "\n\n";
+        }
     }
 
     else
     {
-        cout << "\n\nUSER DETAILS \n____________ \n\nName: " << student_name << "\nCourse: " << student_course << "\nRegistration Fee: N" << registration_cost << "   (Registration Discount = N" << registration_discount << ")" << "\nLodging Fee: N" << lodging_cost << "        (Lodging Discount = N" << lodging_discount << ")" << "\nRandom Draw Number: " << r << "\n__________________\n\nTOTAL:  N" << total << "\n\n";
+        if (pau_student == true)
+        {
+            cout << "\n\nUSER DETAILS \n____________ \n\nName: " << student_name << "     (PAU student: Yes)" << "\nCourse: " << student_course << "\nRegistration Fee: N" << registration_cost << "   (Registration Discount = N" << registration_discount << ")" << "\nLodging Fee: N" << lodging_cost << "        (Lodging Discount = N" << lodging_discount << ")" << "\nRandom Draw Number: " << r << "\n__________________\n\nTOTAL:  N" << total << "\n\n";
+        }
+        else
+        {
+            cout << "\n\nUSER DETAILS \n____________ \n\nName: " << student_name << "     (PAU student: No)" << "\nCourse: " << student_course << "\nRegistration Fee: N" << registration_cost << "   (Registration Discount = N" << registration_discount << ")" << "\nLodging Fee: N" << lodging_cost << "        (Lodging Discount = N" << lodging_discount << ")" << "\nRandom Draw Number: " << r << "\n__________________\n\nTOTAL:  N" << total << "\n\n";
+        }
     }
 }

@@ -1,37 +1,16 @@
 #include <iostream>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
 
 using namespace std;
 
 int main()
 {
-    int number1, number2, temporary, userval, ans;
-
-    // or seed = time(0)
-    srand(time(0));
-    number1 = rand() % 10;
-    number2 = rand() % 10;
-
-    if (number1 < number2)
-    {
-        temporary = number1;
-        number1 = number2;
-        number2 = temporary;
-    }
-
-    ans = number1 - number2;
-
-    cout << "What is number1 - number2? \n";
-    cin >> userval;
-
-    if (userval == ans)
-    {
-        cout << "You are correct! \nThe answer is " << ans;
-    }
-    else
-    {
-        cout << "You are wrong! \nThe answer is " << ans;
-    }
+    double opposite, adjacent, sum, hypotenuse;
+    cout << "Hypotenuse Calculator\n_____________________\n\nPlease input the value of the length of the opposite side of a triangle: ";
+    cin >> opposite;
+    cout << "\nPlease input the value of the length of the adjacent side of a triangle: ";
+    cin >> adjacent;
+    sum = (opposite * opposite) + (adjacent * adjacent);
+    hypotenuse = sqrt(sum);
+    cout << "\nThe Hypotenuse of the triangle with your values is: " << hypotenuse;
 }
