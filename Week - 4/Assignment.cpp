@@ -264,7 +264,7 @@ int main()
     total = registration_cost + lodging_cost;
 
     srand(time(0));
-    r = rand() % 101;
+    r = (rand() % 100) + 1;
 
     if (r == 7 || r == 77)
     {
