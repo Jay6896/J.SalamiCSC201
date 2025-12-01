@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cmath>
 #include <string>
-#include <cstdlib>
-#include <ctime>
 
 using namespace std;
 
@@ -80,7 +78,8 @@ double depositMoney(double balance)
 
     while (checker == false)
     {
-        cout << "How much money would you like to deposit: ";
+        cout << "\nCurrent Balance: N" << balance;
+        cout << "\n\nHow much money would you like to deposit: ";
         cin >> deposit_amount;
 
         if (deposit_amount > 0)
@@ -118,7 +117,8 @@ double withdrawMoney(double balance, double dailyLimit)
 
     while (checker == false)
     {
-        cout << "How much money would you like to withdraw: ";
+        cout << "\nCurrent Balance: N" << balance;
+        cout << "\n\nHow much money would you like to withdraw: ";
         cin >> withdrawn_money;
         if (withdrawn_money > balance)
         {
@@ -126,7 +126,7 @@ double withdrawMoney(double balance, double dailyLimit)
         }
         else if (withdrawn_money > dailyLimit)
         {
-            cout << "\nAmount must not exceed the daily withdrawal limit";
+            cout << "\nAmount must not exceed the daily withdrawal limit of N" << dailyLimit;
         }
         else if (withdrawn_money > 0)
         {
@@ -255,6 +255,6 @@ int main()
     }
     else
     {
-        cout << "Account Locked. Please contact your bank";
+        cout << "\nAccount Locked. Please contact your bank";
     }
 }
