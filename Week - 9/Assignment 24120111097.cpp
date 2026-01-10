@@ -51,6 +51,8 @@ int loadData(const char filename[], int ids[], int scores[], int maxSize)
 
 void printAll(int ids[], int scores[], int size)
 {
+    cout << "\n\nAll student records \n----------------------------";
+
     for (int i = 0; i < size; i++)
     {
         cout << "\nStudentID: " << ids[i] << "    Score: " << scores[i];
@@ -136,42 +138,38 @@ void saveSummary(const char filename[], double average, int minScore, int maxSco
 
     if (outfile)
     {
-        outfile << "Metric,Value\n";
-        outfile << "Number of Students," << (countA + countB + countC + countD + countF) << "\n";
-        outfile << "Average Score," << average << "\n";
-        outfile << "Minimum Score," << minScore << "\n";
-        outfile << "Maximum Score," << maxScore << "\n";
-        outfile << "A Count," << countA << "\n";
-        outfile << "B Count," << countB << "\n";
-        outfile << "C Count," << countC << "\n";
-        outfile << "D Count," << countD << "\n";
-        outfile << "F Count," << countF << "\n";
+        outfile << "Metric                 |               Value\n";
+        outfile << "---------------------------------------------\n";
+        outfile << "Number of Students     |" << (countA + countB + countC + countD + countF) << "\n";
+        outfile << "Average Score          |" << average << "\n";
+        outfile << "Minimum Score          |" << minScore << "\n";
+        outfile << "Maximum Score          |" << maxScore << "\n";
+        outfile << "A Count                |" << countA << "\n";
+        outfile << "B Count                |" << countB << "\n";
+        outfile << "C Count                |" << countC << "\n";
+        outfile << "D Count                |" << countD << "\n";
+        outfile << "F Count                |" << countF << "\n";
     }
 }
 
 void displayTotalStudents(int size)
 {
-    cout << "Total number of students - " << size;
-}
-
-void displayRecordsHeader()
-{
-    cout << "\n\nAll student records -";
+    cout << "Total number of students: " << size;
 }
 
 void displayStatsResults(double average, int minScore, int maxScore)
 {
-    cout << "\n\nAverage, minimum, maximum score - Average: " << average << ", Minimum: " << minScore << ", Maximum: " << maxScore;
+    cout << "\n\nAverage: " << average << "\nMinimum: " << minScore << "\nMaximum: " << maxScore;
 }
 
 void displayGradeResults(int countA, int countB, int countC, int countD, int countF)
 {
-    cout << "\n\nNumber of A, B, C, D, F grades - A: " << countA << ", B: " << countB << ", C: " << countC << ", D: " << countD << ", F: " << countF;
+    cout << "\n\nGrades: \nA: " << countA << "\nB: " << countB << "\nC: " << countC << "\nD: " << countD << "\nF: " << countF;
 }
 
 void displayLuckyStudentResult(int ids[], int scores[], int index)
 {
-    cout << "\n\nLucky randomly selected passing student - ";
+    cout << "\n\nRandomly selected passing student: \n";
     if (index != -1)
     {
         cout << "StudentID: " << ids[index] << " Score: " << scores[index];
@@ -184,7 +182,7 @@ void displayLuckyStudentResult(int ids[], int scores[], int index)
 
 void displayFileSavedConfirmation()
 {
-    cout << "\n\nConfirmation that summary.csv has been created - File saved successfully.\n";
+    cout << "\n\nFile saved successfully.\n";
 }
 
 int main()
@@ -205,7 +203,6 @@ int main()
 
     displayTotalStudents(maxSize);
 
-    displayRecordsHeader();
     printAll(ids, scores, maxSize);
 
     computeStats(scores, maxSize, average, minScore, maxScore);
